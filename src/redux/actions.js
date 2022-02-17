@@ -8,6 +8,9 @@ const getBlogs = (blogs) => ({
 const blogDeleted = () => ({
   type: types.DELETE_BLOG,
 });
+const blogAdded = () => ({
+  type: types.ADD_BLOG,
+});
 
 export const loadBlogs = () => {
   return function (dispatch) {
@@ -27,6 +30,18 @@ export const deleteBlog = (id) => {
       .delete(`${process.env.REACT_APP_API}/${id}`)
       .then((res) => {
         dispatch(blogDeleted());
+        dispatch(loadBlogs());
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const addBlog = (blog) => {
+  return function (dispatch) {
+    axios
+      .post(`${process.env.REACT_APP_API}`, blog)
+      .then((res) => {
+        dispatch(blogAdded());
         dispatch(loadBlogs());
       })
       .catch((err) => console.log(err));

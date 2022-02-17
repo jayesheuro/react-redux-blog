@@ -26,9 +26,9 @@ const Home = () => {
       <Navbar />
       <div className="createDiv">
         <h2>Add a new blog:</h2>
-        {/* <button className="addButton" onClick={() => navigate("/add-blog")}>
+        <button className="addButton" onClick={() => navigate("/add-blog")}>
           Add blog
-        </button> */}
+        </button>
       </div>
       <div className="blogsWrapper">
         {blogs &&

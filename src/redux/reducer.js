@@ -15,6 +15,7 @@ const blogsReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.DELETE_BLOG:
+    case types.ADD_BLOG:
       return {
         ...state,
         loading: false,

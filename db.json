@@ -13,6 +13,13 @@
       "content": "Some random content about python",
       "authorId": 1,
       "authorName": "Jayesh Singh"
+    },
+    {
+      "id": 3,
+      "title": "Java",
+      "content": "A really strong language",
+      "authorId": 1,
+      "authorName": "Jayesh Singh"
     }
   ],
   "users": [
