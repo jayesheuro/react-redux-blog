@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { addBlog, loadBlogs } from "../redux/actions";
-
+import "./AddBlog.scss";
 const AddBlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const AddBlog = () => {
     }
   }, []);
 
-  const { blogs, loading } = useSelector((state) => state.blogs);
+  const { blogs } = useSelector((state) => state.blogs);
   const [blog, setBlog] = useState({
     id: 0,
     title: "",
@@ -60,10 +60,10 @@ const AddBlog = () => {
   return (
     <div className="blogFormWrapper">
       <Navbar />
-      <div className="backButton">
-        <button onClick={() => navigate("/home")}>Back</button>
-      </div>
-      <h2>AddBlog - (blog #{loading ? 0 : blogs.length + 1})</h2>
+      <button className="backButton" onClick={() => navigate("/home")}>
+        Back
+      </button>
+      <h2>Add a blog </h2>
       <form className="blogForm" onSubmit={handleSubmit}>
         <input
           type="text"

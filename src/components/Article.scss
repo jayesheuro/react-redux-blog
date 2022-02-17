@@ -1,0 +1,61 @@
+$color1: #f5f5f5;
+$color2: #f05454;
+$color3: #30475e;
+$color4: #121212;
+.articleWrapper {
+  border: 1px solid lightgray;
+  margin: 2%;
+  flex: 25%;
+  padding: 2.5% 10px;
+  border-radius: 5px;
+  .title {
+    color: $color2;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 3%;
+    text-decoration: underline;
+  }
+  .content {
+    font-size: 1.2rem;
+  }
+
+  .authorName {
+    margin-top: 2%;
+    color: lightslategrey;
+  }
+  button {
+    margin: 3% 2% 2%;
+    padding: 1.5% 4%;
+    font-size: 1.14rem;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @media (max-width: 1024px) {
+      font-size: 1.2rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
+  }
+  .editButton {
+    background: transparent;
+    border: 1px solid $color2;
+    color: $color2;
+
+    &:hover {
+      background-color: $color2;
+      color: white;
+    }
+  }
+  .deleteButton {
+    background: $color2;
+    border: 1px solid $color2;
+    color: white;
+    &:hover {
+      background: transparent;
+      border: 1px solid $color2;
+      color: $color2;
+    }
+  }
+}

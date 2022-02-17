@@ -34,6 +34,13 @@
       "content": "First blog demo description",
       "authorId": 3,
       "authorName": "Divya Singh"
+    },
+    {
+      "id": 6,
+      "title": "Test",
+      "content": "This is a test blog",
+      "authorId": 4,
+      "authorName": "Nitya Singh"
     }
   ],
   "users": [
@@ -54,6 +61,12 @@
       "name": "Divya Singh",
       "email": "divya@gmail.com",
       "password": "abcd"
+    },
+    {
+      "id": 4,
+      "name": "Nitya Singh",
+      "email": "nitya@gmail.com",
+      "password": "nitya"
     }
   ]
 }

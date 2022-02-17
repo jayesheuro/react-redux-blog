@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUsers } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import "./Auth.scss";
 
 const Login = () => {
   let dispatch = useDispatch();
@@ -64,6 +65,7 @@ const Login = () => {
       <h1>Login to your account</h1>
       <form className="loginForm" onSubmit={handleLogin} autoComplete="off">
         <input
+          id="username"
           type="email"
           placeholder="email"
           name="email"

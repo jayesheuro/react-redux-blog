@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addUser, loadUsers } from "../redux/actions";
+import "./Auth.scss";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Signup = () => {
           onChange={(e) => setCpass(e.target.value)}
           autoComplete="off"
         />
-        <button type="submit">LOGIN</button>
+        <button type="submit">SIGN UP</button>
         {error}
       </form>
       <div className="loginLine" onClick={() => navigate("/login")}>

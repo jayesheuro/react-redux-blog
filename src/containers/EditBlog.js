@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { getSingleBlog, updateBlog } from "../redux/actions";
+import "./AddBlog.scss";
 
 const EditBlog = () => {
   const dispatch = useDispatch();
@@ -70,10 +71,10 @@ const EditBlog = () => {
   return (
     <div className="blogFormWrapper">
       <Navbar />
-      <div className="backButton">
-        <button onClick={() => navigate("/home")}>Back</button>
-      </div>
-      <h2>Edit a blog:</h2>
+      <button className="backButton" onClick={() => navigate("/home")}>
+        Back
+      </button>
+      <h2>Edit a blog</h2>
       <form className="blogForm" onSubmit={handleSubmit}>
         <input
           type="text"

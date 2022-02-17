@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./Article.scss";
 
 const ViewArticle = ({ blog, deleteHandler, user }) => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const ViewArticle = ({ blog, deleteHandler, user }) => {
     <div className="articleWrapper">
       <div className="title">{blog && blog.title}</div>
       <div className="content">{blog && blog.content}</div>
-      <div className="authorName">{blog && blog.authorName}</div>
+      <div className="authorName">By - {blog && blog.authorName}</div>
       {blog.authorId === user.id && (
         <>
           <button

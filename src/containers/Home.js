@@ -4,6 +4,7 @@ import ViewArticle from "../components/ViewArticle";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteBlog, loadBlogs } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import "./Home.scss";
 
 const Home = () => {
   const navigate = useNavigate();
