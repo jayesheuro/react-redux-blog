@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ViewArticle = ({ blog, deleteHandler }) => {
+  const navigate = useNavigate();
   return (
     <div className="articleWrapper">
       <div className="title">{blog && blog.title}</div>
@@ -9,7 +11,12 @@ const ViewArticle = ({ blog, deleteHandler }) => {
       <button className="deleteButton" onClick={() => deleteHandler(blog.id)}>
         Delete
       </button>
-      <button className="editButton">Edit</button>
+      <button
+        className="editButton"
+        onClick={() => navigate(`/edit-blog/${blog.id}`)}
+      >
+        Edit
+      </button>
     </div>
   );
 };

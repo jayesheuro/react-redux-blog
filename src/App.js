@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-// import AddBlog from "./containers/AddBlog";
+import AddBlog from "./containers/AddBlog";
+import EditBlog from "./containers/EditBlog";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/sign-up" element={<Signup />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/add-blog" element={<AddBlog />}></Route>
+        <Route path="/edit-blog/:id" element={<EditBlog />}></Route>
       </Routes>
     </div>
   );

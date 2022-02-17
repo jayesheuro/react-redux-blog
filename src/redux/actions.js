@@ -11,6 +11,13 @@ const blogDeleted = () => ({
 const blogAdded = () => ({
   type: types.ADD_BLOG,
 });
+const getBlog = (blog) => ({
+  type: types.GET_BLOG,
+  payload: blog,
+});
+const blogUpdated = () => ({
+  type: types.UPDATE_BLOG,
+});
 
 export const loadBlogs = () => {
   return function (dispatch) {
@@ -42,6 +49,30 @@ export const addBlog = (blog) => {
       .post(`${process.env.REACT_APP_API}`, blog)
       .then((res) => {
         dispatch(blogAdded());
+        dispatch(loadBlogs());
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getSingleBlog = (id) => {
+  return function (dispatch) {
+    axios
+      .get(`${process.env.REACT_APP_API}/${id}`)
+      .then((res) => {
+        dispatch(getBlog(res.data));
+        // dispatch(loadBlogs());
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const updateBlog = (blog, id) => {
+  return function (dispatch) {
+    axios
+      .put(`${process.env.REACT_APP_API}/${id}`, blog)
+      .then((res) => {
+        dispatch(blogUpdated());
         dispatch(loadBlogs());
       })
       .catch((err) => console.log(err));

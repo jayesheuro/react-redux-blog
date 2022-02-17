@@ -16,8 +16,15 @@ const blogsReducer = (state = initialState, action) => {
       };
     case types.DELETE_BLOG:
     case types.ADD_BLOG:
+    case types.UPDATE_BLOG:
       return {
         ...state,
+        loading: false,
+      };
+    case types.GET_BLOG:
+      return {
+        ...state,
+        blog: action.payload,
         loading: false,
       };
     default:
