@@ -37,7 +37,6 @@ const AddBlog = () => {
   const handleInputChange = (e) => {
     let { name, value } = e.target;
     setBlog({ ...blog, [name]: value, id: blogs.length + 1 });
-    console.log(blog);
   };
 
   const handleSubmit = (e) => {

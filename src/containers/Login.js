@@ -19,10 +19,6 @@ const Login = () => {
   }, []);
 
   useEffect(() => {
-    console.log(users);
-  }, [users]);
-
-  useEffect(() => {
     let user = window.localStorage.getItem("user");
     if (user) {
       navigate("/home");

@@ -31,7 +31,6 @@ export const loadBlogs = () => {
     axios
       .get(`${process.env.REACT_APP_BLOGS_API}`)
       .then((res) => {
-        // console.log("blogs", res.data);
         dispatch(getBlogs(res.data));
       })
       .catch((err) => console.log(err));
@@ -91,7 +90,6 @@ export const loadUsers = () => {
     axios
       .get(`${process.env.REACT_APP_USERS_API}`)
       .then((res) => {
-        // console.log("blogs", res.data);
         dispatch(getUsers(res.data));
       })
       .catch((err) => console.log(err));
