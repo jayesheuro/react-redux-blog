@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import AddBlog from "./containers/AddBlog";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        {/* <Route path="/add-blog" element={<AddBlog />}></Route> */}
       </Routes>
     </div>
   );

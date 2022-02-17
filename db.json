@@ -1,36 +1,32 @@
 {
-    "blogs":[
-        {
-            "id":1,
-            "title":"Javascript forever",
-            "content":"Some random content about javascript",
-            "authorId":2
-        },
-        {
-            "id":2,
-            "title":"Python forever",
-            "content":"Some random content about python",
-            "authorId":1
-        },
-        {
-            "id":3,
-            "title":"Dart forever",
-            "content":"Some random content about dart",
-            "authorId":1
-        }
-    ],
-    "users":[
-        {
-            "id":1,
-            "name":"Jayesh Singh",
-            "email":"jayeshsingh@gmail.com",
-            "password":"abcd"
-        },
-        {
-            "id":2,
-            "name":"Rahul Dua",
-            "email":"rahuldua@gmail.com",
-            "password":"abcd"
-        }
-    ]
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Javascript forever",
+      "content": "Some random content about javascript",
+      "authorId": 2,
+      "authorName": "Rahul Dua"
+    },
+    {
+      "id": 2,
+      "title": "Python forever",
+      "content": "Some random content about python",
+      "authorId": 1,
+      "authorName": "Jayesh Singh"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Jayesh Singh",
+      "email": "jayeshsingh@gmail.com",
+      "password": "abcd"
+    },
+    {
+      "id": 2,
+      "name": "Rahul Dua",
+      "email": "rahuldua@gmail.com",
+      "password": "abcd"
+    }
+  ]
 }
