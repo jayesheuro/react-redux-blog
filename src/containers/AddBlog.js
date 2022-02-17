@@ -7,10 +7,21 @@ import { addBlog, loadBlogs } from "../redux/actions";
 const AddBlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
 
   //get all blogs
   useEffect(() => {
     dispatch(loadBlogs());
+  }, []);
+
+  //get current user from localstorage
+  useEffect(() => {
+    let user = window.localStorage.getItem("user");
+    if (user) {
+      setUser({ ...JSON.parse(user) });
+    } else {
+      navigate("/login");
+    }
   }, []);
 
   const { blogs, loading } = useSelector((state) => state.blogs);
@@ -18,8 +29,8 @@ const AddBlog = () => {
     id: 0,
     title: "",
     content: "",
-    authorId: 1,
-    authorName: "Jayesh Singh",
+    authorId: user.id,
+    authorName: user.name,
   });
   const [error, setError] = useState("");
 
@@ -39,8 +50,8 @@ const AddBlog = () => {
           id: blogs.length + 1,
           title: blog.title,
           content: blog.content,
-          authorId: 1, //hardcoded
-          authorName: "Jayesh Singh", //hardcoded
+          authorId: user.id,
+          authorName: user.name,
         })
       );
       setError("");

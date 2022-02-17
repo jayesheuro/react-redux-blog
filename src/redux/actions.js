@@ -18,11 +18,18 @@ const getBlog = (blog) => ({
 const blogUpdated = () => ({
   type: types.UPDATE_BLOG,
 });
+const getUsers = (users) => ({
+  type: types.GET_USERS,
+  payload: users,
+});
+const userAdded = () => ({
+  type: types.ADD_USER,
+});
 
 export const loadBlogs = () => {
   return function (dispatch) {
     axios
-      .get(`${process.env.REACT_APP_API}`)
+      .get(`${process.env.REACT_APP_BLOGS_API}`)
       .then((res) => {
         // console.log("blogs", res.data);
         dispatch(getBlogs(res.data));
@@ -34,7 +41,7 @@ export const loadBlogs = () => {
 export const deleteBlog = (id) => {
   return function (dispatch) {
     axios
-      .delete(`${process.env.REACT_APP_API}/${id}`)
+      .delete(`${process.env.REACT_APP_BLOGS_API}/${id}`)
       .then((res) => {
         dispatch(blogDeleted());
         dispatch(loadBlogs());
@@ -46,7 +53,7 @@ export const deleteBlog = (id) => {
 export const addBlog = (blog) => {
   return function (dispatch) {
     axios
-      .post(`${process.env.REACT_APP_API}`, blog)
+      .post(`${process.env.REACT_APP_BLOGS_API}`, blog)
       .then((res) => {
         dispatch(blogAdded());
         dispatch(loadBlogs());
@@ -58,7 +65,7 @@ export const addBlog = (blog) => {
 export const getSingleBlog = (id) => {
   return function (dispatch) {
     axios
-      .get(`${process.env.REACT_APP_API}/${id}`)
+      .get(`${process.env.REACT_APP_BLOGS_API}/${id}`)
       .then((res) => {
         dispatch(getBlog(res.data));
         // dispatch(loadBlogs());
@@ -70,10 +77,34 @@ export const getSingleBlog = (id) => {
 export const updateBlog = (blog, id) => {
   return function (dispatch) {
     axios
-      .put(`${process.env.REACT_APP_API}/${id}`, blog)
+      .put(`${process.env.REACT_APP_BLOGS_API}/${id}`, blog)
       .then((res) => {
         dispatch(blogUpdated());
         dispatch(loadBlogs());
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const loadUsers = () => {
+  return function (dispatch) {
+    axios
+      .get(`${process.env.REACT_APP_USERS_API}`)
+      .then((res) => {
+        // console.log("blogs", res.data);
+        dispatch(getUsers(res.data));
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const addUser = (user) => {
+  return function (dispatch) {
+    axios
+      .post(`${process.env.REACT_APP_USERS_API}`, user)
+      .then((res) => {
+        dispatch(userAdded());
+        dispatch(loadUsers());
       })
       .catch((err) => console.log(err));
   };

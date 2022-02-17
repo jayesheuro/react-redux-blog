@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import ViewArticle from "../components/ViewArticle";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,10 +6,10 @@ import { deleteBlog, loadBlogs } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  let dispatch = useDispatch();
   const navigate = useNavigate();
+  let dispatch = useDispatch();
   const { blogs } = useSelector((state) => state.blogs);
-
+  const [user, setUser] = useState({});
   //get all blogs
   useEffect(() => {
     dispatch(loadBlogs());
@@ -21,15 +21,26 @@ const Home = () => {
       dispatch(deleteBlog(id));
     }
   };
+  useEffect(() => {
+    let user = window.localStorage.getItem("user");
+    if (user) {
+      setUser({ ...JSON.parse(user) });
+    } else {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div className="homeWrapper">
       <Navbar />
-      <div className="createDiv">
-        <h2>Add a new blog:</h2>
-        <button className="addButton" onClick={() => navigate("/add-blog")}>
-          Add blog
-        </button>
-      </div>
+      {user && (
+        <div className="createDiv">
+          <h2>Add a new blog:</h2>
+          <button className="addButton" onClick={() => navigate("/add-blog")}>
+            Add blog
+          </button>
+        </div>
+      )}
+
       <div className="blogsWrapper">
         {blogs &&
           blogs.map((blog) => (
@@ -37,6 +48,7 @@ const Home = () => {
               key={blog.id}
               blog={blog}
               deleteHandler={handleDelete}
+              user={user}
             />
           ))}
       </div>

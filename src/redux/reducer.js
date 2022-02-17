@@ -6,7 +6,24 @@ const initialState = {
   loading: true,
 };
 
-const blogsReducer = (state = initialState, action) => {
+const initialUsersState = {
+  users: [],
+  loading: true,
+};
+export const usersReducer = (state = initialUsersState, action) => {
+  switch (action.type) {
+    case types.GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const blogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_BLOGS:
       return {
@@ -31,5 +48,3 @@ const blogsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default blogsReducer;

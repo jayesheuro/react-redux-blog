@@ -13,6 +13,27 @@
       "content": "Some random content about python",
       "authorId": 1,
       "authorName": "Jayesh Singh"
+    },
+    {
+      "id": 3,
+      "title": "Indian",
+      "content": "dummy content",
+      "authorId": 1,
+      "authorName": "Jayesh Singh"
+    },
+    {
+      "id": 4,
+      "title": "abra ka dabras",
+      "content": "ajhfvjhjjhghahsfahvfw",
+      "authorId": 2,
+      "authorName": "Rahul Dua"
+    },
+    {
+      "id": 5,
+      "title": "Divya's first blog",
+      "content": "First blog demo description",
+      "authorId": 3,
+      "authorName": "Divya Singh"
     }
   ],
   "users": [
@@ -26,6 +47,12 @@
       "id": 2,
       "name": "Rahul Dua",
       "email": "rahuldua@gmail.com",
+      "password": "abcd"
+    },
+    {
+      "id": 3,
+      "name": "Divya Singh",
+      "email": "divya@gmail.com",
       "password": "abcd"
     }
   ]

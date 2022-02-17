@@ -8,20 +8,30 @@ const EditBlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  const [user, setUser] = useState({});
 
-  //get single user
+  //get single blog
   useEffect(() => {
     dispatch(getSingleBlog(id));
   }, []);
 
+  //get current blog
+  useEffect(() => {
+    let user = window.localStorage.getItem("user");
+    if (user) {
+      setUser({ ...JSON.parse(user) });
+    } else {
+      navigate("/login");
+    }
+  }, []);
   const { blog: targetBlog } = useSelector((state) => state.blogs);
 
   const [blog, setBlog] = useState({
     id: 0,
     title: "",
     content: "",
-    authorId: 1,
-    authorName: "Jayesh Singh",
+    authorId: user.id,
+    authorName: user.name,
   });
   const [error, setError] = useState("");
 
@@ -47,8 +57,8 @@ const EditBlog = () => {
             id: id,
             title: blog.title,
             content: blog.content,
-            authorId: 1, //hardcoded
-            authorName: "Jayesh Singh", //hardcoded
+            authorId: user.id,
+            authorName: user.name,
           },
           id
         )
@@ -79,7 +89,7 @@ const EditBlog = () => {
           onChange={handleInputChange}
         />
         <button className="SubmitFormButton" type="submit">
-          Add
+          Update
         </button>
         {error}
       </form>
